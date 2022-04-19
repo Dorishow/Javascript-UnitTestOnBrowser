@@ -8,9 +8,10 @@ const Assertions = {
   it: (description, callBackFn) => {
     try {
       const assertion = callBackFn();
-      console.log(description, assertion);
+      console.log("\x1b[32m%s\x1b[0m", "\u2714 " + description, assertion);
     } catch (error) {
-      console.error(description, error);
+      console.log("\x1b[31m%s\x1b[0m", "\u2718 " + description);
+      console.error(error);
     }
   },
 
