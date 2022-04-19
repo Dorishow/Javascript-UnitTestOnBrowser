@@ -58,8 +58,6 @@ const Assertions = {
  * set Assertions to global window object */
 window.Assertions = Assertions;
 
-console.table(window.Assertions);
-
 /**
  * Examples
  *
@@ -68,5 +66,3 @@ console.table(window.Assertions);
  * Assertions.it("should pass", () => Assertions.assertEquals(1, 1));
  *
  */
-
-Assertions.assertEquals;
