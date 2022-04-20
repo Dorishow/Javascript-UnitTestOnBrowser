@@ -1,4 +1,47 @@
 /**
+ *
+ * In this project you can find an introduction to unit test
+ * using your browser as a code editor.
+ * Our goal is to help students to learn javascript
+ * and have a good introduction to unit tests without using
+ * a javascript framework.
+ * 
+ * With this project you can run vanilla javascript unit
+ * tests using your browser.
+ * 
+
+/**
+ *  
+ * How to use this project:
+ *
+ * Paste to source code to your console or source snippet,
+ * Run the code;
+ *
+ * Create a Assertions const to access the assertions:
+ * ->   const Assertions = window["Assertions"]
+ *
+ * use the Assertions
+ * Ex.:
+ *      Assertions.expect("assertion description", 1 + 2).toBe(3)
+ */
+
+/**
+ *
+ * Examples
+ *
+ * Assertions.it("should throw error", () => Assertions.assertEquals(1, 2));
+ *
+ * Assertions.it("should pass", () => Assertions.assertEquals(1, 1));
+ *
+ * Assertions.it("shoul not pass", () => Assertions.notNull(null));
+ *
+ * Assertions.expect("should pass", 1 + 2).toBe(3)
+ *
+ * Assertions.expect("should not pass", 1 + 2).toBe(7)
+ *
+ */
+
+/**
  * Assertions object contains all test methods */
 const Assertions = {
   /**
@@ -62,6 +105,10 @@ const Assertions = {
    */
   expect: (description, expression) => {
     return {
+      /**
+       *
+       * @param {*} val is the expected value of the expression
+       */
       toBe: (val) => {
         if (expression !== val) {
           console.log("\x1b[31m%s\x1b[0m", "\u2718 " + description);
@@ -80,16 +127,3 @@ const Assertions = {
 /**
  * set Assertions to global window object */
 window.Assertions = Assertions;
-
-/**
- * Examples
- *
- * Assertions.it("should throw error", () => Assertions.assertEquals(1, 2));
- *
- * Assertions.it("should pass", () => Assertions.assertEquals(1, 1));
- *
- * Assertions.expect("should pass", 1 + 2).toBe(3)
- *
- * Assertions.expect("should not pass", 1 + 2).toBe(7)
- *
- */
