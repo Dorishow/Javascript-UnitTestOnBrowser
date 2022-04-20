@@ -53,6 +53,28 @@ const Assertions = {
       return `Test passed: ${var1} is not null`;
     }
   },
+
+  /**
+   *
+   * @param {string} description
+   * @param {*} expression
+   * @returns string or else throw error
+   */
+  expect: (description, expression) => {
+    return {
+      toBe: (val) => {
+        if (expression !== val) {
+          console.log("\x1b[31m%s\x1b[0m", "\u2718 " + description);
+          throw new Error(`${expression} is different from ${val}`);
+        } else {
+          console.log(
+            "\x1b[32m%s\x1b[0m",
+            "\u2714 " + `Test passed: ${expression} is equal to expected ${val}`
+          );
+        }
+      },
+    };
+  },
 };
 
 /**
@@ -65,5 +87,9 @@ window.Assertions = Assertions;
  * Assertions.it("should throw error", () => Assertions.assertEquals(1, 2));
  *
  * Assertions.it("should pass", () => Assertions.assertEquals(1, 1));
+ *
+ * Assertions.expect("should pass", 1 + 2).toBe(3)
+ *
+ * Assertions.expect("should not pass", 1 + 2).toBe(7)
  *
  */
